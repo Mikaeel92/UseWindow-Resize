@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export default function CustomHook () {
 
@@ -7,6 +7,18 @@ export default function CustomHook () {
         height: 0,
     })
 
+    const handleSize = () => {
+        setWindowSize({
+            width: window.innerWidth,
+            height: window.innerHeight
+        })
+    }
+
+    useEffect(() => {
+        handleSize()
+        window.addEventListener('resize', handleSize)
+        return () => window.removeEventListener('resize', handleSize)
+    }, [])
 
     return windowSize
 }

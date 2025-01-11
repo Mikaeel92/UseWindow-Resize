@@ -2,7 +2,8 @@ import React from 'react'
 
 const App = () => {
 
-const {width, height} = CustomHook()
+  const windowSize = CustomHook()
+  const {width, height} = windowSize
 
   return (
     <div className='flex flex-col items-center justify-center h-screen w-screen gap-4'>
